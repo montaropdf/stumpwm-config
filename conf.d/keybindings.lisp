@@ -61,7 +61,6 @@
 
 (defvar *my-application-menu*
   (let ((m (make-sparse-keymap)))
-    (define-key m (kbd "a") '*app-menu*)
     (define-key m (kbd "c") "exec alacritty -name weechat -e weechat")
     (define-key m (kbd "d") "exec evince")
     (define-key m (kbd "e") "colon1 exec emacsclient -c ")

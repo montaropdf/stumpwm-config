@@ -75,12 +75,54 @@ grename F1-Main")
 ;;   (3 t   t   :instance "qjackctl" :role "qjackctlMainForm"))
 
 ;; Mode line definition
-(setf stumpwm:*mode-line-foreground-color* "gainsboro")
+(setf *mode-line-foreground-color* "gainsboro")
+(setf *mode-line-background-color* "DeepSkyBlue")
+(setf *mode-line-pad-y* 0)
+(setf *mode-line-pad-x* 0)
+(setf *mode-line-border-color* *mode-line-background-color*)
+(setf *time-modeline-string* "%a %y-%m-%e %k:%M")
 
-;; (setf stumpwm:*time-modeline* "%a %y-%m-%e %k:%M:%S")
+(defvar group-item-format "^(:fg MediumSpringGreen)^(:bg black)[%n]")
+(defvar focused-window-item-format "^(:fg gainsboro)^(:bg black)%w")
+(defvar group-window-separator-format "^(:fg OrangeRed)^(:bg black)>>")
+(defvar left-block-end-separator-format "^(:fg gainsboro)^(:bg black)|*\\")
+(defvar right-block-begin-separator-format "^(:fg gainsboro)^(:bg black)/*|")
+(defvar systray-block-begin-separator-format left-block-end-separator-format)
+(defvar item-separator-format "^(:fg gainsboro)^(:bg black)|")
+(defvar systray-block-format "^(:fg gainsboro)^(:bg black)%T")
+(defvar battery-item-format "^(:fg gainsboro)^(:bg black)Battery: %B")
+(defvar wifi-item-format "^(:fg gainsboro)^(:bg black)%I")
+(defvar date-time-item-format "^(:fg gainsboro)^(:bg black)%d")
+
+(setf stumpwm:*screen-mode-line-format*
+      (list group-item-format
+            "^n"
+            group-window-separator-format
+            "^n"
+            focused-window-item-format
+            "^n"
+            left-block-end-separator-format
+            "^n"
+            "^>"
+            right-block-begin-separator-format
+            "^n"
+            battery-item-format
+            "^n"
+            item-separator-format
+            "^n"
+            wifi-item-format
+            "^n"
+            item-separator-format
+            "^n"
+            date-time-item-format
+            "^n"
+            systray-block-begin-separator-format
+            "^n"
+            systray-block-format))
+
 
 ;; (setf stumpwm:*screen-mode-line-format*
-;;       (list "^(:fg MediumSpringGreen)[%n]  ^n%w | ^>||Bat: %B|%I|%d"))
+;;       (list "^(:fg MediumSpringGreen :bg black)[%n]^n>>%w|*\\^(:bg MediumSpringGreen) ^>/*|Bat: %B|%I|%d|*\\%T"))
 
 ;; * StumpWM Menu tests
 (defvar *reve-test-menu* '((("element 1" "emacs --daemon=cyber-daemon -Q && emacsclient -e '(load-file \"~/.emacs.d/equake.el\")' -s 'cyber-daemon'")

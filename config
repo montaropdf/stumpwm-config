@@ -12,13 +12,17 @@
 (load-module "pass")
 (load-module "surfraw")
 (load-module "command-history")
+(load-module "stumptray")
+(load-module "battery-portable")
+(load-module "wifi")
 
-(load "~/.config/stumpwm/customs")
-(load "~/.config/stumpwm/equake-conf")
-(load "~/.config/stumpwm/keybindings")
+;; LOAD PRIVATE PRE-CONFIG FILES HERE (load "~/.config/stumpwm/userenv")
+(load "~/.config/stumpwm/conf.d/customs")
+(load "~/.config/stumpwm/conf.d/equake-conf")
+(load "~/.config/stumpwm/conf.d/keybindings")
+(load "~/.config/stumpwm/conf.d/autostart")
+(load "~/.config/stumpwm/conf.d/lisp-server")
+;; LOAD PRIVATE POST-CONFIG FILES HERE
 
-(load "~/.config/stumpwm/autostart")
-
-(load "~/.config/stumpwm/swank-server")
-
-;; (mode-line)
+(mode-line)
+(stumptray::stumptray)

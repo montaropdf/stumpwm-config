@@ -1,0 +1,11 @@
+#+TITLE: README
+
+My configuration for StumPWM, a tiled window manager for linux.
+
+* Installation
+  :PROPERTIES:
+  :ID:       7046b869-06c0-4a1e-99c9-65a64cb91cf9
+  :END:
+  Deploy this repository in your =$XDG_HOME_CONFIG= directory.
+
+  Next, start StumpWM.

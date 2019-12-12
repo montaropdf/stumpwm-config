@@ -61,6 +61,7 @@
 
 (defvar *my-application-menu*
   (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "S") "exec /usr/bin/sparkleshare --status-icon=gtk")
     (define-key m (kbd "c") "exec alacritty -name weechat -e weechat")
     (define-key m (kbd "d") "exec evince")
     (define-key m (kbd "e") "colon1 exec emacsclient -c ")
@@ -100,8 +101,8 @@
 (define-key *top-map* (kbd "s-Right") "move-focus right")
 
 ;; Quick windows navigation in current frame
-(define-key *top-map* (kbd "M-Tab") "next")
-(define-key *top-map* (kbd "M-ISO_Left_Tab") "prev")
+(define-key *top-map* (kbd "M-Tab") "pull-hidden-next")
+(define-key *top-map* (kbd "M-ISO_Left_Tab") "pull-hidden-previous")
 
 ;; * Defining multimedia keys key binding
 ;; Sound volume management

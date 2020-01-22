@@ -6,6 +6,10 @@ My configuration for StumPWM, a tiled window manager for linux.
   :PROPERTIES:
   :ID:       7046b869-06c0-4a1e-99c9-65a64cb91cf9
   :END:
+  This configuration relies on the Common Lisp package
+  =ttf-fonts=. Ensure it is deployed and that you run
+  =(xft:cache-fonts)= from your common lisp implementation REPL.
+
   Deploy this repository in your =$XDG_HOME_CONFIG= directory.
 
   Next, start StumpWM.

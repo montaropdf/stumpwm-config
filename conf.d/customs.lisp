@@ -9,8 +9,6 @@
               (when cmd
                 (eval-command cmd t))))
 
-
-
 ;; Web jump (works for Google and Imdb)
 (defmacro make-web-jump (name prefix)
   `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " search: ")))
@@ -19,19 +17,21 @@
 
 
 ;; Message window font
-(set-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15")
+(load-module "ttf-fonts")
+;; Next line to be used when fonts gets updated
+;; (xft:cache-fonts)
+(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 14))
 
 ;; * Defining groups
-;(grename "Main")
+;; (grename "Main")
 (gnew "F2-Comms")
 (gnew "F3-Media")
 (gnew "F4-Admin")
 (gnew "F5-Monitor")
-(run-commands "gselect 1
-grename F1-Main")
+;; (run-commands "gselect 1
+;; grename F1-Main")
 
 ;; * Define windows placement policy
-
 ;; Clear rules
 (clear-window-placement-rules)
 
@@ -42,10 +42,10 @@ grename F1-Main")
 ;; restored from *data-dir*/create file.
 ;; TIP: if the :restore flag is set then group dump is restored even for an
 ;; existing group using *data-dir*/restore file.
-(define-frame-preference "F1-Main"
-    ;; frame raise lock (lock AND raise == jumpto)
-    (0 t nil :class "Konqueror" :role "...konqueror-mainwindow")
-  (1 t nil :class "urxvt"))
+;; (define-frame-preference "F1-Main"
+;;     ;; frame raise lock (lock AND raise == jumpto)
+;;     (0 t nil :class "Konqueror" :role "...konqueror-mainwindow")
+;;   (1 t nil :class "urxvt"))
 
 (define-frame-preference "F3-Media"
     (0 t nil :class "mpv")
@@ -80,7 +80,7 @@ grename F1-Main")
 (setf *mode-line-pad-y* 0)
 (setf *mode-line-pad-x* 0)
 (setf *mode-line-border-color* *mode-line-background-color*)
-(setf *time-modeline-string* "%a %y-%m-%e %k:%M")
+(setf *time-modeline-string* "%a %Y-%m-%e %k:%M")
 
 (defvar group-item-format "^(:fg MediumSpringGreen)^(:bg black)[%n]")
 (defvar focused-window-item-format "^(:fg gainsboro)^(:bg black)%w")

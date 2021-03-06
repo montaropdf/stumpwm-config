@@ -1,5 +1,11 @@
 #+TITLE: README
 
+*WARNING*: The ZSH configuration has been moved to https://github.com/montaropdf/dotfiles.git.
+
+The repository will not be update anymore.
+
+---------
+
 My configuration for StumPWM, a tiled window manager for linux.
 
 * Installation
